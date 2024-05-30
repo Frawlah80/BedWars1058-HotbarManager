@@ -38,9 +38,9 @@
         <dependency>
             <groupId>com.andrei1058.bedwars</groupId>
             <artifactId>BedWars1058</artifactId>
-            <version>23.3</version>
+            <version>23.12.1</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/bedwars-plugin-23.3.jar</systemPath>
+            <systemPath>${project.basedir}/libs/bedwars-plugin-23.12.1-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.andrei1058.bedwars</groupId>
@@ -54,14 +54,14 @@
             <artifactId>BedWars2023</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/BedWars-1.0-SNAPSHOT.jar</systemPath>
+            <systemPath>${project.basedir}/libs/bedwars2023-1.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.tomkeuper.bedwars</groupId>
             <artifactId>BWProxy2023</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/proxy-plugin-1.0-SNAPSHOT.jar</systemPath>
+            <systemPath>${project.basedir}/libs/proxy-plugin-1.0-SNAPSHOT (1).jar</systemPath>
         </dependency>
     </dependencies>
 

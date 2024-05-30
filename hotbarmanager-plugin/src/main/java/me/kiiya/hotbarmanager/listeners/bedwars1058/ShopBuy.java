@@ -41,8 +41,8 @@ public class ShopBuy implements Listener {
         ICategoryContent cc = e.getCategoryContent();
         String identifier = cc.getIdentifier();
         IContentTier content = cc.getContentTiers().get(0);
-        ShopCache cache = ShopCache.getShopCache(p.getUniqueId());
-        AtomicReference<ShopCache.CachedItem> cachedItem = new AtomicReference<>(cache.getCachedItem(identifier));
+        ShopCache cache = ShopCache.getInstance().getShopCache(p.getUniqueId());
+        AtomicReference<com.andrei1058.bedwars.shop.ShopCache.CachedItem> cachedItem = new AtomicReference<>((com.andrei1058.bedwars.shop.ShopCache.CachedItem) cache.getCachedItem(identifier));
         IContentTier tier = cachedItem.get() == null ? cc.getContentTiers().get(0) : e.getCategoryContent().getContentTiers().get(cachedItem.get().getTier()-1);
         Material currency = tier.getCurrency();
         int price = content.getPrice();
@@ -74,7 +74,7 @@ public class ShopBuy implements Listener {
                     if (p.getInventory().getItem(i) != null) {
                         if (HotbarManager.getBW1058Api().getVersionSupport().getShopUpgradeIdentifier(item) != null && HotbarManager.getBW1058Api().getVersionSupport().getShopUpgradeIdentifier(item).equals(identifier)) {
                             cache.upgradeCachedItem((CategoryContent) cc, cc.getSlot());
-                            cachedItem.set(cache.getCachedItem(identifier));
+                            cachedItem.set((com.andrei1058.bedwars.shop.ShopCache.CachedItem) cache.getCachedItem(identifier));
                             item = cc.getContentTiers().get(cachedItem.get().getTier()-1).getBuyItemsList().get(0).getItemStack();
                             p.getInventory().setItem(i-1, HotbarManager.getBW1058Api().getVersionSupport().setShopUpgradeIdentifier(item, identifier));
                         } else {
@@ -102,7 +102,7 @@ public class ShopBuy implements Listener {
                                 Bukkit.getScheduler().runTaskLater(HotbarManager.getPlugins(), () -> {
                                     if (cc.isPermanent()) {
                                         cache.upgradeCachedItem((CategoryContent) cc, cc.getSlot());
-                                        cachedItem.set(cache.getCachedItem(identifier));
+                                        cachedItem.set((com.andrei1058.bedwars.shop.ShopCache.CachedItem) cache.getCachedItem(identifier));
                                         finalItem1.set(cc.getContentTiers().get(cachedItem.get().getTier() - 1).getBuyItemsList().get(0).getItemStack());
                                         finalItem1.set(BedWars.nms.addCustomData(Utility.formatItemStack(finalItem1.get(), t), ""));
                                         p.getInventory().setItem(finalI, HotbarManager.getBW1058Api().getVersionSupport().setShopUpgradeIdentifier(finalItem1.get(), identifier));
@@ -116,7 +116,7 @@ public class ShopBuy implements Listener {
                     } else {
                         if (cc.isPermanent()) {
                             cache.upgradeCachedItem((CategoryContent) cc, cc.getSlot());
-                            cachedItem.set(cache.getCachedItem(identifier));
+                            cachedItem.set((com.andrei1058.bedwars.shop.ShopCache.CachedItem) cache.getCachedItem(identifier));
                             item = cc.getContentTiers().get(cachedItem.get().getTier()-1).getBuyItemsList().get(0).getItemStack();
                             Utility.formatItemStack(item, t);
                             ItemMeta meta = item.getItemMeta();

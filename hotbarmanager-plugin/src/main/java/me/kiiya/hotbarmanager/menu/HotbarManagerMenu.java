@@ -81,7 +81,7 @@ public class HotbarManagerMenu implements GUIHolder {
 
                     if (isPlaying) {
                         if (HotbarManager.getSupport() == Support.BEDWARS1058) {
-                            ShopManager.shop.open(p.getPlayer(), PlayerQuickBuyCache.getQuickBuyCache(p.getPlayer().getUniqueId()), false);
+                            ShopManager.shop.open(p.getPlayer(), PlayerQuickBuyCache.getInstance().getQuickBuyCache(p.getPlayer().getUniqueId()), false);
                         } else {
                             com.tomkeuper.bedwars.shop.ShopManager.shop.open(p.getPlayer(), com.tomkeuper.bedwars.shop.quickbuy.PlayerQuickBuyCache.getInstance().getQuickBuyCache(p.getPlayer().getUniqueId()), false);
                         }
